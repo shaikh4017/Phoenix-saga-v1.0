@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://x67l61wwbrev"]
+
+[ext_resource type="Script" uid="uid://d0ptyly1sgy4c" path="res://assests/scripts/flying_enemy.gd" id="1_i7kv4"]
+[ext_resource type="Texture2D" uid="uid://br8pb00v7kd4l" path="res://assests/sprites/Batss.png" id="1_mcr26"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7kv4"]
+atlas = ExtResource("1_mcr26")
+region = Rect2(166, 356, 83, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78dch"]
+atlas = ExtResource("1_mcr26")
+region = Rect2(249, 356, 83, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sbwb"]
+atlas = ExtResource("1_mcr26")
+region = Rect2(332, 356, 83, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kelb"]
+atlas = ExtResource("1_mcr26")
+region = Rect2(415, 356, 83, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjora"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7kv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78dch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sbwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kelb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7arc"]
+size = Vector2(77, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcr26"]
+radius = 36.2491
+
+[node name="FlyingEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_i7kv4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bjora")
+autoplay = "default"
+frame_progress = 0.183672
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_x7arc")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_mcr26")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dv2756tashwft" path="res://assests/scripts/fireball.gd" id="2_4ohc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk85d"]
-size = Vector2(10, 6)
+size = Vector2(10, 7)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_4ohc2")
@@ -13,5 +13,5 @@ script = ExtResource("2_4ohc2")
 texture = ExtResource("1_qk85d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_qk85d")
