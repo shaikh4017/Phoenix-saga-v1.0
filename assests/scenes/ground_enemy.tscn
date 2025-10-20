@@ -46,11 +46,18 @@ radius = 8.84615
 script = ExtResource("1_5m7se")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.608226, 0.529901)
 sprite_frames = SubResource("SpriteFrames_2cykf")
 autoplay = "default"
 frame_progress = 0.165108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 0)
-scale = Vector2(3.05217, 2.19481)
+position = Vector2(-9.53674e-07, -1)
+scale = Vector2(1.48239, 1.28113)
 shape = SubResource("CapsuleShape2D_vmcoh")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
