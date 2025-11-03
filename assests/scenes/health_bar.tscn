@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://btwc3os8dttfd"]
+
+[ext_resource type="Script" uid="uid://blgbhuqckciow" path="res://assests/scripts/health_bar.gd" id="1_y8tsx"]
+[ext_resource type="Texture2D" uid="uid://bcg6ja66jtr27" path="res://assests/images/health_bar.png" id="3_jmp2b"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y8tsx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.0364743, 0.00952631)
+texture_progress = ExtResource("3_jmp2b")

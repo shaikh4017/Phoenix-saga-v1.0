@@ -1,7 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://x67l61wwbrev"]
 
-[ext_resource type="Script" uid="uid://d0ptyly1sgy4c" path="res://assests/scripts/flying_enemy.gd" id="1_i7kv4"]
+[ext_resource type="Script" uid="uid://ssa6drsm4nwc" path="res://assests/scripts/flying_enemy.gd" id="1_i7kv4"]
 [ext_resource type="Texture2D" uid="uid://br8pb00v7kd4l" path="res://assests/sprites/Batss.png" id="1_mcr26"]
+[ext_resource type="PackedScene" uid="uid://btwc3os8dttfd" path="res://assests/scenes/health_bar.tscn" id="3_78dch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7kv4"]
 atlas = ExtResource("1_mcr26")
@@ -42,9 +43,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7arc"]
 size = Vector2(77, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mcr26"]
-radius = 36.2491
-
 [node name="FlyingEnemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_i7kv4")
 
@@ -57,9 +55,9 @@ frame_progress = 0.183672
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_x7arc")
 
-[node name="Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_mcr26")
-
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="HealthBar" parent="." instance=ExtResource("3_78dch")]
+offset_left = -27.0
+offset_top = 20.0
+offset_right = 13.0
+offset_bottom = 60.0
+scale = Vector2(0.988266, 0.199901)

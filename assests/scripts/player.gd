@@ -1,15 +1,12 @@
 extends CharacterBody2D
 
-@export var bullet_scene: PackedScene = preload("res://assests/scenes/fireball.tscn") # Double-check the path
+@export var bullet_scene: PackedScene = preload("res://assests/scenes/fireball.tscn") 
 
 var fly_speed: float = 200.0
-var gravity: float = 50.0
+var gravity: float = 10.0
 var hover_damping: float = 5.0
 
 func _physics_process(delta: float) -> void:
-	# Rotate to face the mouse
-	#look_at(get_global_mouse_position())
-
 	# Handle firing
 	if Input.is_action_just_pressed("ui_accept"):
 		fire()
@@ -42,3 +39,7 @@ func fire() -> void:
 	bullet.global_position = global_position
 	bullet.dir = rotation  # Send current rotation
 	get_parent().add_child(bullet)
+func _ready() -> void:
+	add_to_group("player")
+
+	
