@@ -25,15 +25,9 @@ func _ready() -> void:
 	health_bar.set_health(health)
 
 func _physics_process(delta: float) -> void:
-	if not player:
-		return
-
-	# Move toward player
-	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * move_speed
+	# Move from right to left
+	velocity = Vector2.LEFT * move_speed
 	move_and_slide()
-	rotation = direction.angle() + PI / 2
-
 
 	# Keep health bar above the enemy
 	if health_bar:

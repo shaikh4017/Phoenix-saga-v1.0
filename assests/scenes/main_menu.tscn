@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1r0vr8rhwybb"]
+[gd_scene load_steps=7 format=3 uid="uid://c1r0vr8rhwybb"]
 
 [ext_resource type="FontFile" uid="uid://draxcur5xbwak" path="res://assests/fonts/PixelOperator8.ttf" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://dp52eqwqasxxa" path="res://assests/images/MainMenu.png" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://b7u4n3vm40k8p" path="res://assests/scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://1nc4rg5thea" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="4_y06om"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fu7sn"]
 texture = ExtResource("1_7vrkn")
@@ -61,7 +62,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Start
 "
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 2
 size_flags_stretch_ratio = 9.0
@@ -82,4 +83,41 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Quit
 "
 
+[node name="OptionPopup" type="PopupPanel" parent="."]
+title = "Options"
+initial_position = 1
+size = Vector2i(268, 216)
+max_size = Vector2i(32754, 32768)
+
+[node name="Label" type="Label" parent="OptionPopup"]
+modulate = Color(1, 0.631373, 0.345098, 1)
+top_level = true
+texture_filter = 1
+texture_repeat = 2
+offset_left = 53.0
+offset_top = 2.0
+offset_right = 245.0
+offset_bottom = 144.0
+scale = Vector2(0.742881, 0.536997)
+theme_override_fonts/font = ExtResource("4_y06om")
+theme_override_font_sizes/font_size = 33
+text = "Option"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 171
+
+[node name="CheckButton" type="CheckButton" parent="OptionPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 264.0
+offset_bottom = 212.0
+size_flags_stretch_ratio = 10.0
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 28
+text = "Sound"
+
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="toggled" from="OptionPopup/CheckButton" to="." method="_on_check_button_toggled"]

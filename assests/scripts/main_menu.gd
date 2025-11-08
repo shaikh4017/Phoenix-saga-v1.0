@@ -1,15 +1,28 @@
 extends Control
 
+@onready var options_popup: PopupPanel = $OptionPopup
+@onready var sound_checkbutton: CheckButton = $OptionPopup/CheckButton
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# Default: music is ON, button pressed if music is enabled
+	sound_checkbutton.button_pressed = MusicManager.music_enabled
 
+	# Connect the toggled signal
+	sound_checkbutton.toggled.connect(_on_check_button_toggled)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass 
-
+	pass
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://assests/scenes/game.tscn")
+
+func _on_options_button_pressed() -> void:
+	options_popup.popup_centered()
+
+func _on_check_button_toggled(pressed: bool) -> void:
+	# Toggle music via MusicManager
+	MusicManager.set_music_enabled(pressed)
+
+
+func _on_button_3_pressed() -> void:
+	get_tree().quit()# Replace with function body.

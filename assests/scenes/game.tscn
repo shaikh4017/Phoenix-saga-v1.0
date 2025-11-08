@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjo8ku105b71j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjo8ku105b71j"]
 
+[ext_resource type="Script" uid="uid://45jx7pnp1r8v" path="res://assests/scripts/game.gd" id="1_8rwcb"]
 [ext_resource type="PackedScene" uid="uid://df1x4efiu73i5" path="res://assests/scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b14ukww83p6jl" path="res://assests/sprites/world_tileset.png" id="2_32awq"]
 [ext_resource type="PackedScene" uid="uid://bcylq05xx5glp" path="res://assests/scenes/flame.tscn" id="4_gyctv"]
@@ -7,18 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dd4lcbf8xw66h" path="res://assests/scenes/killzone.tscn" id="5_j4weu"]
 [ext_resource type="PackedScene" uid="uid://x67l61wwbrev" path="res://assests/scenes/flying_enemy.tscn" id="6_2813r"]
 [ext_resource type="PackedScene" uid="uid://d2h7pqhymdrws" path="res://assests/scenes/ground_enemy.tscn" id="7_kg66x"]
-
-[sub_resource type="GDScript" id="GDScript_qlat3"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-"
+[ext_resource type="PackedScene" uid="uid://cbdj454hg0qg5" path="res://assests/UI/tutorial_ui.tscn" id="8_3ahpx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyctv"]
 texture = ExtResource("2_32awq")
@@ -170,7 +160,7 @@ sources/0 = SubResource("TileSetAtlasSource_gyctv")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2813r"]
 
 [node name="Game" type="Node2D"]
-script = SubResource("GDScript_qlat3")
+script = ExtResource("1_8rwcb")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(155, -10)
@@ -264,3 +254,7 @@ position = Vector2(379, 130)
 
 [node name="GroundEnemy2" parent="enemies" instance=ExtResource("7_kg66x")]
 position = Vector2(478, 128)
+
+[node name="Control" parent="." instance=ExtResource("8_3ahpx")]
+
+[connection signal="tutorial_finished" from="Control" to="." method="_on_control_tutorial_finished"]
