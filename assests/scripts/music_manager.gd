@@ -1,7 +1,7 @@
 extends Node
 
 @onready var player: AudioStreamPlayer = AudioStreamPlayer.new()
-var music_enabled: bool = true
+var music_enabled: bool = false
 
 func _ready() -> void:
 	add_child(player)

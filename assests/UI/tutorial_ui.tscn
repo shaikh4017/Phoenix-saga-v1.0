@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbdj454hg0qg5"]
+[gd_scene load_steps=6 format=3 uid="uid://cbdj454hg0qg5"]
 
 [ext_resource type="Script" uid="uid://c5gi4v30ir770" path="res://assests/scripts/tutorial_ui.gd" id="1_wul3l"]
+[ext_resource type="FontFile" uid="uid://1nc4rg5thea" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_bmliy"]
+
+[sub_resource type="Animation" id="Animation_bmliy"]
+resource_name = "controls"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uscb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qqq1"]
+_data = {
+&"RESET": SubResource("Animation_uscb5"),
+&"controls": SubResource("Animation_bmliy")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,22 +49,56 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wul3l")
 
+[node name="Backgorund" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.12587
+anchor_bottom = 5.16807
+offset_right = -7057.01
+offset_bottom = -2700.91
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996918, 1.00989)
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 255.0
-offset_bottom = 237.0
-scale = Vector2(1.11453, 0.870968)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -149.833
+offset_right = 240.0
+offset_bottom = 149.833
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.13609, 1.28784)
+theme_override_fonts/font = ExtResource("2_bmliy")
 theme_override_font_sizes/font_size = 32
 text = "Controls:
-Move: ← / →
-SHoot: SPACE
+Movement 
+Buttons
+Up/Down: ↑  ↓
+Left/Right: ←  →
+Shoot: SPACE
 Avoid Ice Spikes!
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(7.12587, 5.16807)
+scale = Vector2(28.6865, 16.2771)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1qqq1")
+}
+autoplay = "controls"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
