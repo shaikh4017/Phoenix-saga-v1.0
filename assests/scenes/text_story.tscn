@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://clhc438k4hpj4"]
+
+[ext_resource type="VideoStream" uid="uid://dc7t841ormxjm" path="res://assests/images/Introduction Video .ogv" id="1_qvyqi"]
+
+[node name="TextStory" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.603193, 0.601895)
+stream = ExtResource("1_qvyqi")
+autoplay = true
+buffering_msec = 300
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../VideoStreamPlayer")
