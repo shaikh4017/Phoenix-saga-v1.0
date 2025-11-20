@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 60.0
+@export var move_speed: float = 40.0
 @export var max_health: int = 3
 @onready var health_bar_scene = preload("res://assests/scenes/health_bar.tscn")
 
@@ -35,8 +35,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int = 1) -> void:
 	health -= amount
-	print("Enemy hit! Health left: ", health)
-
 	# Update bar
 	if health_bar:
 		health_bar.set_health(health)
@@ -45,5 +43,4 @@ func take_damage(amount: int = 1) -> void:
 		die()
 
 func die() -> void:
-	print("💀 Enemy defeated!")
 	queue_free()

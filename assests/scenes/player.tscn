@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://df1x4efiu73i5"]
+[gd_scene load_steps=12 format=3 uid="uid://df1x4efiu73i5"]
 
 [ext_resource type="Script" uid="uid://b84onxhckppq1" path="res://assests/scripts/player.gd" id="1_40kiy"]
 [ext_resource type="Texture2D" uid="uid://c58x4d0maoue4" path="res://assests/sprites/Phoenix_SpriteSheet_1.png" id="1_q5va4"]
@@ -56,6 +56,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40kiy"]
+size = Vector2(50, 22)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -77,3 +80,11 @@ sprite_frames = SubResource("SpriteFrames_vi4an")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.962012
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_40kiy")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ytdcfa18l4i"]
+
+[ext_resource type="Script" uid="uid://dj86ef82kuskm" path="res://assests/scripts/player_health_bar.gd" id="1_5um2e"]
+[ext_resource type="Texture2D" uid="uid://bcg6ja66jtr27" path="res://assests/images/health_bar.png" id="1_u5xom"]
+
+[node name="PlayerHealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5um2e")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.0800334, 0.0629784)
+texture_over = ExtResource("1_u5xom")
