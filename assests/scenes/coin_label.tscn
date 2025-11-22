@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://degtqfxa5t570"]
+
+[ext_resource type="Script" uid="uid://cpd2inhdfu850" path="res://assests/scripts/coinlabel.gd" id="1_hwfdd"]
+
+[node name="CoinLabel" type="CanvasLayer"]
+
+[node name="Coinlabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Coin : 0 "
+script = ExtResource("1_hwfdd")

@@ -1,7 +1,7 @@
 extends Control
 
-var max_health: int = 3
-var current_health: int = 3
+var max_health: int = 10
+var current_health: int = 10
 @onready var bar = $TextureProgressBar
 
 func _ready():

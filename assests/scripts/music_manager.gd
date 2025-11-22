@@ -1,7 +1,12 @@
 extends Node
 
+# --- Music Variables ---
 @onready var player: AudioStreamPlayer = AudioStreamPlayer.new()
 var music_enabled: bool = false
+
+# --- Coin Variables ---
+var coins: int = 0
+signal coins_changed(new_count)
 
 func _ready() -> void:
 	add_child(player)
@@ -9,9 +14,15 @@ func _ready() -> void:
 	if music_enabled:
 		player.play()
 
+# --- Music Control ---
 func set_music_enabled(enabled: bool) -> void:
 	music_enabled = enabled
 	if music_enabled:
 		player.play()
 	else:
 		player.stop()
+
+# --- Coins ---
+func add_coin(amount: int = 1) -> void:
+	coins += amount
+	emit_signal("coins_changed", coins)

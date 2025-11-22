@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjo8ku105b71j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjo8ku105b71j"]
 
 [ext_resource type="Script" uid="uid://45jx7pnp1r8v" path="res://assests/scripts/game.gd" id="1_8rwcb"]
 [ext_resource type="PackedScene" uid="uid://df1x4efiu73i5" path="res://assests/scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b14ukww83p6jl" path="res://assests/sprites/world_tileset.png" id="2_32awq"]
-[ext_resource type="PackedScene" uid="uid://bcylq05xx5glp" path="res://assests/scenes/flame.tscn" id="4_gyctv"]
 [ext_resource type="Texture2D" uid="uid://pwt2swccxqyq" path="res://assests/images/bg.jpg" id="4_j4weu"]
 [ext_resource type="PackedScene" uid="uid://dd4lcbf8xw66h" path="res://assests/scenes/killzone.tscn" id="5_j4weu"]
+[ext_resource type="PackedScene" uid="uid://dkpj4ooq1jcn8" path="res://assests/scenes/coin.tscn" id="6_3ahpx"]
 [ext_resource type="PackedScene" uid="uid://x67l61wwbrev" path="res://assests/scenes/flying_enemy.tscn" id="6_2813r"]
 [ext_resource type="PackedScene" uid="uid://d2h7pqhymdrws" path="res://assests/scenes/ground_enemy.tscn" id="7_kg66x"]
+[ext_resource type="PackedScene" uid="uid://degtqfxa5t570" path="res://assests/scenes/coin_label.tscn" id="9_8rwcb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyctv"]
 texture = ExtResource("2_32awq")
@@ -183,7 +184,7 @@ scale = Vector2(14.9645, -11.5716)
 zoom = Vector2(2, 2)
 limit_left = -258
 limit_top = -81
-limit_right = 1315
+limit_right = 1393
 limit_bottom = 263
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -200,8 +201,8 @@ scale = Vector2(0.330666, 0.31128)
 light_mask = 64
 visibility_layer = 4
 z_index = 4
-position = Vector2(-798.389, -250.578)
-scale = Vector2(0.679575, 0.365015)
+position = Vector2(-786.292, -308.404)
+scale = Vector2(0.950352, 0.380323)
 texture = ExtResource("4_j4weu")
 centered = false
 
@@ -211,28 +212,28 @@ position = Vector2(621, 201)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_2813r")
 
-[node name="CollectibleFlame" type="Node" parent="."]
+[node name="CollectibleCoin" type="Node" parent="."]
 
-[node name="Flame2" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(271, 100)
+[node name="Coin5" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(376, 138)
 
-[node name="Flame" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(103, 101)
+[node name="Coin" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(85, 37)
 
-[node name="Flame3" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(725, 68)
+[node name="Coin2" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(4, 11)
 
-[node name="Flame5" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(859, 70)
+[node name="Coin3" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(188, 142)
 
-[node name="Flame6" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(937, 68)
+[node name="Coin4" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(282, 140)
 
-[node name="Flame7" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(1011, 68)
+[node name="Coin6" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(524, 32)
 
-[node name="Flame4" parent="CollectibleFlame" instance=ExtResource("4_gyctv")]
-position = Vector2(776, 68)
+[node name="Coin7" parent="CollectibleCoin" instance=ExtResource("6_3ahpx")]
+position = Vector2(455, 40)
 
 [node name="enemies" type="Node" parent="."]
 
@@ -250,3 +251,5 @@ scale = Vector2(0.699566, 0.533536)
 
 [node name="GroundEnemy" parent="enemies" instance=ExtResource("7_kg66x")]
 position = Vector2(527, 133)
+
+[node name="CoinLabel" parent="." instance=ExtResource("9_8rwcb")]

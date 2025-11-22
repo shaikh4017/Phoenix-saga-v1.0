@@ -1,27 +1,25 @@
 extends Control
 class_name PlayerHealthBar
 
-@export var max_health: int = 3
-var current_health: int = 3
+var max_health: int = 10
+var current_health: int = 10
 
-@onready var bar: TextureProgressBar = null
+@onready var bar: TextureProgressBar = $TextureProgressBar
+@onready var tween := get_tree().create_tween()
 
-func _ready():
-	bar = $TextureProgressBar
-	# Make sure TextureProgressBar starts with correct max and current values
-	bar.max_value = max_health
-	bar.value = current_health
+func set_max_health(value: int):
+	max_health = value
+	bar.max_value = value
+	bar.value = value  # start full
 
-func set_health(health: int):
-	current_health = clamp(health, 0, max_health)
-	update_bar()
+func set_health(value: int):
+	value = clamp(value, 0, max_health)
 
-func set_max_health(health: int):
-	max_health = health
-	if bar:
-		bar.max_value = max_health
-	update_bar()
+	# Animate smoothly over 0.3 sec
+	if tween:
+		tween.kill()    # stop old animation
 
-func update_bar():
-	if bar:
-		bar.value = current_health
+	tween = get_tree().create_tween()
+	tween.tween_property(bar, "value", value, 0.3)
+
+	current_health = value
