@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	# Apply damage if it's a valid enemy
 	if target and (target.is_in_group("enemies") or target.is_in_group("ground_enemy")):
 		target.take_damage(1)  # Let the enemy handle health
-
+	if target and (target.is_in_group("boss") or target.is_in_group("ground_enemy")):
+		target.take_damage(1)  # Let the enemy handle health
 	# Fireball disappears after hitting
 	queue_free()

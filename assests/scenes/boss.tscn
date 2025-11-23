@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjv6mw260j8xy"]
+
+[ext_resource type="Script" uid="uid://bq03i1vt4r3cl" path="res://assests/scripts/boss.gd" id="1_hef5w"]
+[ext_resource type="Texture2D" uid="uid://dnev7rifp6v5g" path="res://assests/sprites/Villian.png" id="1_t1d5i"]
+[ext_resource type="PackedScene" uid="uid://btwc3os8dttfd" path="res://assests/scenes/health_bar.tscn" id="3_e706m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hef5w"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(10, 6, 104, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e706m"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(410, 126, 100, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_773ur"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(310, 126, 100, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckxlp"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(210, 126, 100, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ixt"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(110, 126, 100, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuuxt"]
+atlas = ExtResource("1_t1d5i")
+region = Rect2(10, 126, 100, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6msy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hef5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e706m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_773ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckxlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0ixt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuuxt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krkt3"]
+
+[node name="Boss" type="CharacterBody2D" groups=["boss"]]
+script = ExtResource("1_hef5w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -19)
+scale = Vector2(0.935765, 0.848813)
+sprite_frames = SubResource("SpriteFrames_p6msy")
+autoplay = "default"
+frame_progress = 0.481367
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -18)
+scale = Vector2(2.73023, -2.05773)
+shape = SubResource("RectangleShape2D_krkt3")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_e706m")]
+offset_left = -27.0
+offset_top = 20.0
+offset_right = 13.0
+offset_bottom = 60.0
+scale = Vector2(0.988266, 0.199901)

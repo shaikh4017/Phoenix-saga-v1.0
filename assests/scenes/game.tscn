@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dd4lcbf8xw66h" path="res://assests/scenes/killzone.tscn" id="5_j4weu"]
 [ext_resource type="PackedScene" uid="uid://dkpj4ooq1jcn8" path="res://assests/scenes/coin.tscn" id="6_3ahpx"]
 [ext_resource type="PackedScene" uid="uid://x67l61wwbrev" path="res://assests/scenes/flying_enemy.tscn" id="6_2813r"]
-[ext_resource type="PackedScene" uid="uid://d2h7pqhymdrws" path="res://assests/scenes/ground_enemy.tscn" id="7_kg66x"]
 [ext_resource type="PackedScene" uid="uid://degtqfxa5t570" path="res://assests/scenes/coin_label.tscn" id="9_8rwcb"]
+[ext_resource type="PackedScene" uid="uid://bjv6mw260j8xy" path="res://assests/scenes/boss.tscn" id="9_ggtuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyctv"]
 texture = ExtResource("2_32awq")
@@ -249,7 +249,8 @@ scale = Vector2(0.699566, 0.533536)
 position = Vector2(337, 44)
 scale = Vector2(0.699566, 0.533536)
 
-[node name="GroundEnemy" parent="enemies" instance=ExtResource("7_kg66x")]
-position = Vector2(527, 133)
-
 [node name="CoinLabel" parent="." instance=ExtResource("9_8rwcb")]
+
+[node name="Boss" parent="." instance=ExtResource("9_ggtuc")]
+position = Vector2(621, 31)
+scale = Vector2(1, 1.18559)

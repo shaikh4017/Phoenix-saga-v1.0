@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6vskipvsi8u7"]
+
+[ext_resource type="Script" uid="uid://cela8w07pmp67" path="res://assests/scripts/iceball.gd" id="1_13hyw"]
+[ext_resource type="Texture2D" uid="uid://cyeafemfagoyl" path="res://assests/sprites/Iceball.png" id="1_ivdum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13hyw"]
+size = Vector2(10, 6)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_13hyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0201012, 0.0156361)
+texture = ExtResource("1_ivdum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13hyw")
