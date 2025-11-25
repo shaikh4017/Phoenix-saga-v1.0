@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	# --- Scene change ---
 	if global_position.x > scene_change_x:
 		print("Player passed trigger X, switching to main_menu.tscn")
-		get_tree().change_scene_to_file("res://assests/scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://assests/scenes/level_2.tscn")
 
 func fire() -> void:
 	var bullet = bullet_scene.instantiate()
@@ -91,6 +91,8 @@ func _on_hitbox_body_entered(body):
 	if body.is_in_group("enemies"):
 		take_damage(1)
 	if body.is_in_group("boss"):
+		take_damage(2)
+	if body.is_in_group("boss_iceball"):
 		take_damage(2)
 
 func take_damage(amount: int = 1):

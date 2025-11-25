@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13hyw"]
 size = Vector2(10, 6)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["boss_iceball"]]
 script = ExtResource("1_13hyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13hyw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0201012, 0.0156361)
 texture = ExtResource("1_ivdum")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_13hyw")

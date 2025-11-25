@@ -1,26 +1,24 @@
 extends CharacterBody2D
 
+# --- Speed of the iceball ---
 @export var speed: float = 400.0
-var direction: Vector2 = Vector2.RIGHT  # must be normalized
 
-func _ready():
-	direction = direction.normalized()  # make sure it's a unit vector
+# --- Direction to move (set by boss when shooting) ---
+var direction: Vector2 = Vector2.RIGHT
+
 
 func _physics_process(delta: float) -> void:
-	# Move in the set direction
+	# Move iceball in its direction
 	var motion = direction * speed * delta
 	var collision = move_and_collide(motion)
 	
+	# If collided with something
 	if collision:
-		var collider = collision.get_collider()
-
-		# Damage player
-		if collider.is_in_group("player") and collider.has_method("take_damage"):
-			collider.take_damage(1)
-
-		# Damage boss (optional)
-		if collider.is_in_group("boss") and collider.has_method("take_damage"):
-			collider.take_damage(1)
-
-		# Destroy iceball on collision
+		var hit = collision.get_collider()
+		if hit:
+			# Damage the player if hit
+			if hit.is_in_group("player") and hit.has_method("take_damage"):
+				hit.take_damage(1)
+		
+		# Destroy the iceball after hitting anything
 		queue_free()
