@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://clhc438k4hpj4"]
+[gd_scene load_steps=3 format=3 uid="uid://clhc438k4hpj4"]
 
-[ext_resource type="VideoStream" uid="uid://dhvrpwqdaiwvv" path="res://assests/images/story.ogv" id="1_qvyqi"]
+[ext_resource type="Script" uid="uid://bud0lbjt4j0u3" path="res://assests/scripts/text_story.gd" id="1_52dff"]
+[ext_resource type="VideoStream" uid="uid://d02gx3wbai3q4" path="res://assests/images/story.ogv" id="1_qvyqi"]
 
 [node name="TextStory" type="Node2D"]
+script = ExtResource("1_52dff")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.603193, 0.601895)
+scale = Vector2(0.898944, 0.901181)
 stream = ExtResource("1_qvyqi")
 volume_db = 24.0
 autoplay = true
@@ -16,3 +18,5 @@ buffering_msec = 300
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../VideoStreamPlayer")
 speed_scale = 4.0
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
