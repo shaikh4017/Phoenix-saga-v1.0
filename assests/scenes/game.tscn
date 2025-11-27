@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjo8ku105b71j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjo8ku105b71j"]
 
 [ext_resource type="Script" uid="uid://45jx7pnp1r8v" path="res://assests/scripts/game.gd" id="1_8rwcb"]
 [ext_resource type="PackedScene" uid="uid://df1x4efiu73i5" path="res://assests/scenes/player.tscn" id="1_uwrxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpj4ooq1jcn8" path="res://assests/scenes/coin.tscn" id="6_3ahpx"]
 [ext_resource type="PackedScene" uid="uid://x67l61wwbrev" path="res://assests/scenes/flying_enemy.tscn" id="6_2813r"]
 [ext_resource type="PackedScene" uid="uid://degtqfxa5t570" path="res://assests/scenes/coin_label.tscn" id="9_8rwcb"]
+[ext_resource type="PackedScene" uid="uid://celroruobk624" path="res://assests/scenes/spike.tscn" id="9_ggtuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rwcb"]
 texture = ExtResource("2_32awq")
@@ -162,7 +163,7 @@ sources/0 = SubResource("TileSetAtlasSource_8rwcb")
 script = ExtResource("1_8rwcb")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(155, -10)
+position = Vector2(150, -10)
 rotation = -3.14159
 scale = Vector2(2.0031, -1.99956)
 tile_set = SubResource("TileSet_j4weu")
@@ -200,7 +201,7 @@ scale = Vector2(0.330666, 0.31128)
 light_mask = 64
 visibility_layer = 4
 z_index = 4
-position = Vector2(-786.292, -308.404)
+position = Vector2(-804.437, -308.404)
 scale = Vector2(0.950352, 0.380323)
 texture = ExtResource("4_j4weu")
 centered = false
@@ -236,6 +237,10 @@ position = Vector2(455, 40)
 
 [node name="enemies" type="Node" parent="."]
 
+[node name="FlyingEnemy4" parent="enemies" instance=ExtResource("6_2813r")]
+position = Vector2(703, 16)
+scale = Vector2(0.489393, 0.284661)
+
 [node name="FlyingEnemy" parent="enemies" instance=ExtResource("6_2813r")]
 position = Vector2(138, 106)
 scale = Vector2(0.699566, 0.533536)
@@ -248,4 +253,40 @@ scale = Vector2(0.699566, 0.533536)
 position = Vector2(337, 44)
 scale = Vector2(0.699566, 0.533536)
 
+[node name="FlyingEnemy5" parent="enemies" instance=ExtResource("6_2813r")]
+position = Vector2(1083, 50)
+scale = Vector2(-0.695794, 0.378147)
+
+[node name="FlyingEnemy6" parent="enemies" instance=ExtResource("6_2813r")]
+position = Vector2(1219, 30)
+scale = Vector2(-0.695794, 0.378147)
+
+[node name="FlyingEnemy8" parent="enemies" instance=ExtResource("6_2813r")]
+position = Vector2(1433, 35)
+scale = Vector2(-0.695794, 0.378147)
+
+[node name="FlyingEnemy7" parent="enemies" instance=ExtResource("6_2813r")]
+position = Vector2(1367, 90)
+scale = Vector2(-0.695794, 0.378147)
+
 [node name="CoinLabel" parent="." instance=ExtResource("9_8rwcb")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Spike" parent="Node" instance=ExtResource("9_ggtuc")]
+position = Vector2(549, 111)
+scale = Vector2(0.125259, -0.13091)
+
+[node name="Spike2" parent="Node" instance=ExtResource("9_ggtuc")]
+position = Vector2(177, -49)
+scale = Vector2(0.12023, 0.132347)
+
+[node name="Spike3" parent="Node" instance=ExtResource("9_ggtuc")]
+position = Vector2(271.091, -47.2138)
+rotation = -3.10635
+scale = Vector2(0.321583, -0.101787)
+skew = 0.0119768
+
+[node name="Spike4" parent="Node" instance=ExtResource("9_ggtuc")]
+position = Vector2(224, -48)
+scale = Vector2(0.120464, 0.104055)
