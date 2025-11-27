@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://assests/UI/tutorial_ui.tscn")
+	get_tree().change_scene_to_file("res://assests/scenes/text_story.tscn")
 
 func _on_options_button_pressed() -> void:
 	options_popup.popup_centered()
