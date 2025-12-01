@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b114g7qriaqm1"]
+[gd_scene load_steps=3 format=3 uid="uid://b114g7qriaqm1"]
+
+[ext_resource type="Script" uid="uid://0wihkhy0nijg" path="res://assests/scripts/end_game.gd" id="1_dhsw3"]
+[ext_resource type="FontFile" uid="uid://1nc4rg5thea" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_jikmr"]
 
 [node name="EndGame" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dhsw3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -21,8 +25,5 @@ offset_right = 34.0
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "THE END 
-
-You Win!
-
-Story Continue..."
+theme_override_fonts/font = ExtResource("2_jikmr")
+theme_override_font_sizes/font_size = 18

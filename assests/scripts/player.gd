@@ -94,8 +94,9 @@ func _on_hitbox_body_entered(body):
 		take_damage(2)
 	if body.is_in_group("boss_iceball"):
 		take_damage(2)
+		body.queue_free()
 	if body.is_in_group("spike"):
-		take_damage(1)
+		take_damage(5)
 
 func take_damage(amount: int = 1):
 	if not can_take_damage:

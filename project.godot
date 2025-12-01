@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Phoenix Saga V1.0"
-run/main_scene="uid://bk5j5r8wkq2r6"
+run/main_scene="uid://cyx8ehplgp6sp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -22,6 +22,7 @@ MusicManager="*res://assests/scripts/music_manager.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

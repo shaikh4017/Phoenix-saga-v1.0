@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 	var collider = collision.get_collider()
 	print("Fireball hit:", collider.name)
 
-	# 1. Destroy spike on hit
-	if collider.is_in_group("spike"):
-		collider.queue_free()
-		queue_free()  # Fireball also disappears
-		return
+	## 1. Destroy spike on hit
+	#if collider.is_in_group("spike"):
+		#collider.queue_free()
+		#queue_free()  # Fireball also disappears
+		#return
 
 	# 2. Search for parent that has take_damage() for enemies/bosses
 	var target = collider
