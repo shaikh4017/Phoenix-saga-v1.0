@@ -111,8 +111,13 @@ func take_damage(amount: int = 1):
 	can_take_damage = true
 
 	if health <= 0:
-		restart_game()
+		MusicManager.end_message = "You LOSE"
+		get_tree().change_scene_to_file("res://assests/scenes/end_game.tscn")
 
 func restart_game():
 	print("Player died! Restarting...")
 	get_tree().reload_current_scene()
+
+func die():
+	MusicManager.end_message = "You LOSE"
+	get_tree().change_scene_to_file("res://assests/scenes/end_game.tscn")

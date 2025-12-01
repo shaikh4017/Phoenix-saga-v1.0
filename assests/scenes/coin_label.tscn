@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://degtqfxa5t570"]
+[gd_scene load_steps=4 format=3 uid="uid://degtqfxa5t570"]
 
 [ext_resource type="Script" uid="uid://cpd2inhdfu850" path="res://assests/scripts/coinlabel.gd" id="1_hwfdd"]
+[ext_resource type="FontFile" uid="uid://1nc4rg5thea" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="1_kgxoo"]
 [ext_resource type="Script" uid="uid://35qr18ylih48" path="res://assests/scripts/score_label.gd" id="2_r125d"]
 
 [node name="CoinLabel" type="CanvasLayer"]
@@ -8,6 +9,8 @@
 [node name="Coinlabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_kgxoo")
 text = "Coin : 0 "
 script = ExtResource("1_hwfdd")
 
@@ -18,5 +21,6 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_kgxoo")
 text = "Score:"
 script = ExtResource("2_r125d")

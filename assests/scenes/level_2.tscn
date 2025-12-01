@@ -237,23 +237,23 @@ position = Vector2(455, 40)
 [node name="CoinLabel" parent="." instance=ExtResource("7_so2fn")]
 
 [node name="Boss" parent="." instance=ExtResource("8_d05y6")]
-position = Vector2(621, 31)
+position = Vector2(365, 20)
 scale = Vector2(1, 1.18559)
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("9_w6d4m")]
-position = Vector2(918, -24)
+position = Vector2(687, -14)
 scale = Vector2(0.911362, 0.728039)
 
 [node name="FlyingEnemy2" parent="." instance=ExtResource("9_w6d4m")]
-position = Vector2(990, 54)
+position = Vector2(840, 121)
 scale = Vector2(0.860513, 0.596286)
 
 [node name="FlyingEnemy3" parent="." instance=ExtResource("9_w6d4m")]
-position = Vector2(1094, -50)
+position = Vector2(799, -40)
 scale = Vector2(0.867885, 0.477027)
 collision_layer = 4
 collision_mask = 4
 
 [node name="FlyingEnemy4" parent="." instance=ExtResource("9_w6d4m")]
-position = Vector2(859, 99)
+position = Vector2(694, 53)
 scale = Vector2(0.804719, 0.513382)

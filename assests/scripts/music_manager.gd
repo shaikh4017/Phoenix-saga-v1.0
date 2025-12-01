@@ -3,6 +3,7 @@ extends Node
 # --- Music Variables ---
 @onready var player: AudioStreamPlayer = AudioStreamPlayer.new()
 var music_enabled: bool = false
+var end_message: String = ""
 
 # --- Coin Variables ---
 var coins: int = 0

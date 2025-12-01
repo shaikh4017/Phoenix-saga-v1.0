@@ -88,8 +88,7 @@ func take_damage(amount: int = 1) -> void:
 
 	if health <= 0:
 		die()
-		get_tree().change_scene_to_file("res://assests/scenes/end_game.tscn")
 
-
-func die() -> void:
-	queue_free()
+func die():
+	MusicManager.end_message = "You WIN!!!"
+	get_tree().change_scene_to_file("res://assests/scenes/end_game.tscn")
