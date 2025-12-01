@@ -26,6 +26,6 @@ func _physics_process(delta: float) -> void:
 	# 3. Damage enemy/boss
 	if target and (target.is_in_group("enemies") or target.is_in_group("ground_enemy") or target.is_in_group("boss")):
 		target.take_damage(1)
-
+		MusicManager.add_score(1) 
 	# 4. Fireball disappears after hitting something
 	queue_free()

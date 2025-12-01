@@ -26,3 +26,10 @@ func set_music_enabled(enabled: bool) -> void:
 func add_coin(amount: int = 1) -> void:
 	coins += amount
 	emit_signal("coins_changed", coins)
+
+var score: int = 0
+signal score_changed(new_score)
+
+func add_score(amount: int = 1) -> void:
+	score += amount
+	emit_signal("score_changed", score)
