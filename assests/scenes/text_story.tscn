@@ -19,4 +19,10 @@ buffering_msec = 300
 root_node = NodePath("../VideoStreamPlayer")
 speed_scale = 4.0
 
+[node name="SkipButton" type="Button" parent="."]
+offset_right = 42.0
+offset_bottom = 31.0
+text = "SKIP"
+
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_button_pressed"]

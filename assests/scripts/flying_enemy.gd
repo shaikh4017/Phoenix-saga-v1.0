@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed: float = 40.0
 @export var max_health: int = 3
-@onready var health_bar_scene = preload("res://assests/scenes/health_bar.tscn")
+#@onready var health_bar_scene = preload("res://assests/scenes/health_bar.tscn")
 
 var health: int
 var player: Node2D
@@ -18,11 +18,11 @@ func _ready() -> void:
 		player = players[0]
 
 	# Add health bar
-	health_bar = health_bar_scene.instantiate()
-	add_child(health_bar)
-	health_bar.position = Vector2(0, 25) # 25 px above the enemy
-	health_bar.set_max_health(max_health)
-	health_bar.set_health(health)
+	#health_bar = health_bar_scene.instantiate()
+	#add_child(health_bar)
+	#health_bar.position = Vector2(0, 25) # 25 px above the enemy
+	#health_bar.set_max_health(max_health)
+	#health_bar.set_health(health)
 
 func _physics_process(delta: float) -> void:
 	# Move from right to left
