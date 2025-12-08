@@ -29,7 +29,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.929173, 0.898354)
 stream = ExtResource("2_i0wcq")
-volume_db = -19.07
+volume_db = -67.1
+autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 script = SubResource("GDScript_jfitr")

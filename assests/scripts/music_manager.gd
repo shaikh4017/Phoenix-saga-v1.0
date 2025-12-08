@@ -12,6 +12,7 @@ signal coins_changed(new_count)
 func _ready() -> void:
 	add_child(player)
 	player.stream = preload("res://assests/sounds/main_game.wav") # loop set in stream
+	player.volume_db = -30.0
 	if music_enabled:
 		player.play()
 
