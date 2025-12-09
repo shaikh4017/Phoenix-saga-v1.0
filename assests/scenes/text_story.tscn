@@ -11,7 +11,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.898944, 0.901181)
 stream = ExtResource("1_qvyqi")
-volume_db = 24.0
+volume_db = -15.61
 autoplay = true
 buffering_msec = 300
 
